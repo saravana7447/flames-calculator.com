@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flames Calculator</title>
+</head>
+
+<body>
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="icon" href="h.png">
+        <title>Flames Calculator</title>
+        <link rel="stylesheet" href="'fla.css">
+
+    </head>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .banner {
+            position: relative;
+            height: 50;
+            margin: 0 auto;
+        }
+
+        .heading {
+            color: white;
+            position: absolute;
+            top: 30%;
+            width: 100%;
+            text-align: center;
+            font-size: 50px;
+        }
+
+    </style>
+
+    <body>
+
+        <div class="banner">
+            <img src="back2.jpeg" height='100' width="10000">
+            <div class="heading"> Flames Calculator</div>
+
+        </div>
+
+        <img src=" b.jpeg"> <img src="b.jpeg"><img src="b2.jpeg">
+
+        <center>
+            <h2> FLAMES is a popular game or method used for fun to determine the compatibility or relationship status
+                between two people, typically in a romantic context. The word "FLAMES" is an acronym representing
+                different stages of a relationship ... </h2>
+        </center>
+
+        <br>
+
+        <style>
+            h3 {
+                background-color: rgb(251, 202, 209);
+                text-align: center;
+                margin-left: 40%;
+                border: 10px;
+                border-color: red;
+                border-style: solid;
+                padding: 50px;
+                display: inline-block;
+            }
+
+            .l {
+
+                text-align: 50%;
+                border: 70px;
+                padding-left: 25px;
+                margin: 90px;
+                color: white;
+                background-color: rgb(240, 145, 161);
+                display: inline;
+            }
+
+            .na {
+                text-align: 30px;
+                background-color: rgb(227, 221, 221);
+                margin: 50px;
+                padding: 50px;
+                border-radius: 100px;
+            }
+
+            .sub {
+                background-color: rgb(227, 221, 221);
+
+                padding: 8px 22px;
+
+            }
+
+            button {
+                color: #fff;
+                padding: 8px 22px;
+                border-radius: 6px;
+                background: #cdc6c6;
+                transition: all 0.2s ease;
+                margin-right: 65px;
+                cursor: pointer;
+
+
+            }
+
+            button:active {
+                transform: scale(0.96);
+            }
+
+            .b12 {
+                padding-left: 500px;
+                display: block;
+
+            }
+
+            .res {
+                background-color: black;
+                color: black;
+                stroke: black;
+
+                display: inline;
+            }
+
+        </style>
+
+        <h3 style="color: black;">
+            <ul>
+                <li>F -> Friends</li>
+                <li>L -> Lovers</li>
+                <li>A -> Affectionate</li>
+                <li>M -> Marriage</li>
+                <li>E -> Enemies</li>
+                <li>S -> Siblings</li>
+            </ul>
+        </h3>
+        <br>
+
+        <h2 class="l">
+            💞 FLAMES ( Love Calculator )
+        </h2>
+
+        <div class="na">
+
+            <div class="bb">
+                <label for="name1" style="font-size: larger;">Enter the first name:</label>
+                <br><br>
+                <input type="text" id="name1" placeholder="Your name" style="font-size: medium;">
+                <br><br>
+
+                <label for="name2" style="font-size: larger;">Enter the second name:</label>
+                <br><br>
+                <input type="text" id="name2" placeholder="Partner's name" style="font-size: medium;">
+                <br><br>
+            </div>
+            <div class="b12">
+                <button onclick="calculateFlames()" style="color: black;">Calculate</button>
+                <button type="button" onclick="clearFields()" style="color: black;"> Clear</button>
+                <br><br><br>
+            </div>
+            <div class="res">
+                <center>
+                    <h2 id="result" style="stroke-width: 100px;"></h2><br>
+                </center>
+            </div>
+
+            <script>
+                function calculateFlames() {
+                    let name1 = document.getElementById('name1').value.toUpperCase();
+                    let name2 = document.getElementById('name2').value.toUpperCase();
+
+                    if (!name1 || !name2) {
+                        alert("Please enter both names ");
+                        return;
+                    }
+
+                    // Remove common letters
+                    for (let i = 0; i < name1.length; ++i) {
+                        for (let j = 0; j < name2.length; ++j) {
+                            if (name1[i] === name2[j]) {
+                                name1 = replaceChar(name1, i, ' ');
+                                name2 = replaceChar(name2, j, ' ');
+                                break;
+                            }
+                        }
+                    }
+
+                    let count = countNonSpaceChars(name1) + countNonSpaceChars(name2);
+
+                    // Determine the relationship
+                    let flames = "FLAMES";
+                    let index = 0;
+
+                    while (flames.length > 1) {
+                        index = (index + count - 1) % flames.length;
+                        flames = flames.slice(0, index) + flames.slice(index + 1);
+                    }
+
+                    // Display the result
+                    let result;
+                    switch (flames[0]) {
+                        case 'F':
+                            result = 'Friends -  A connection as solid as the camaraderie between Virat Kohli and AB de Villiers ';
+                            break;
+                        case 'L':
+                            result = 'Lovers - A love connection between you and your partner';
+                            break;
+                        case 'A':
+                            result = 'Affectionate ... ';
+                            break;
+                        case 'M':
+                            result = 'Marriage - A journey together, mirroring the enduring love of Sita and Rama ';
+                            break;
+                        case 'E':
+                            result = 'Enemies - A passionate dynamic akin to the rivalry between Harry Potter and Lord Voldemort';
+                            break;
+                        case 'S':
+                            result = 'Siblings - A familial connection as strong as the bond between Thor and Loki in Asgard';
+                            break;
+                    }
+
+                    document.getElementById('result').innerText = 'Relationship: ' + result;
+
+                }
+
+                function replaceChar(str, index, replacement) {
+                    return str.substring(0, index) + replacement + str.substring(index + 1);
+                }
+
+                function countNonSpaceChars(str) {
+                    let count = 0;
+                    for (let i = 0; i < str.length; ++i) {
+                        if (str[i] !== ' ') {
+                            ++count;
+                        }
+                    }
+                    return count;
+                }
+
+                function clearFields() {
+                    document.getElementById('name1').value = '';
+                    document.getElementById('name2').value = '';
+                    document.getElementById('result').innerText = '';
+                }
+            </script>
+            <style>
+                .work {
+
+                    background-color: #fff;
+                    padding: 30px;
+                    padding-bottom: 50px;
+                    margin-bottom: 25px;
+
+
+                    display: block;
+                }
+            </style>
+            <div class="work">
+                <br><br><br>
+                <center>
+
+                    <h2>How Flames calculator works: </h2><br><br>
+
+                </center>
+                <p style="font-size: larger;">
+                    <ul>
+                        <li>Step 1: To start with, enter the names of two different people.</li> <br>
+                        <li>Step 2: After that removing common letters those that show up in both names so this process becomes easier due to the algorithm.</li><br>
+                        <li>Step 3: After counting the remaining letters, the procedure is repeated by going through the letters in "FLAMES."</li><br>
+                        <li>Step 4: letters are removed from the algorithm based on their count until when there is just one letter left.The result is considered as falling within the appropriate category of that letter, which includes Friends, Lovers, Affectionate, Marriage, Enemies, and Siblings.
+                        </li><br>
+                        <li>Step 5: A creative and imaginative reaction to the outcome occurs. for example If the answer is "L" for Lovers, it suggests a romantic relationship between the two people.
+                            It's important to understand the truth that there do not exist logical or scientific basis behind the FLAMES calculator. It should be viewed as a game and not as an accurate indicator of relationships because
+                            it is just a game.The individual online tool or application you're utilising will choose the exact algorithm or calculating procedure that will determine your random results.</li><br><br>
+                    </ul>
+                </p>
+
+            </div>
+        </div>
+        <br><br><hr><br>
+        <center>
+            <a href="fla.html"> Home |</a> <a href="https://www.instagram.com/iam__saravana__?igsh=aDhidTd3OHFpM3Nh">instagram |</a><a href="https://www.linkedin.com/in/saravanakumar7447?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">linkedin </a>
+        </center>
+        <br><hr>
+    </body>
+    </html>
