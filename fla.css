@@ -1,0 +1,22 @@
+*{
+    padding:0;
+    margin : 0;
+    box-sizing: border-box;
+}
+.banner{
+    width: 10000;
+    height: 100;
+    position: relative;
+}
+.banner img{
+    width :100%;
+
+}
+.banner .text{
+    position:absolute;
+    color: azure;
+    left: 50px;
+    top: 10px;
+    font-size: 30px;
+    transform: translate(-50%,-50%);
+}
